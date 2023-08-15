@@ -7,10 +7,7 @@ Examples:
 */
 
 function hasOddNumber(arr) {
-    arr.some(isOdd);
-    function isOdd(val) {        
-        return (val % 2 !== 0);
-    }
+    return arr.some(num => num % 2 !== 0);
 }
 
 /*
@@ -22,9 +19,9 @@ Examples:
 */
 
 function hasAZero(num) {
-    num.some(val) {
-        return (val === 0);
-    }
+    return !num.toString().split('').every(function(digit) {
+        return digit !== '0';
+      });
 }
 
 /*
@@ -36,9 +33,7 @@ Examples:
 */
 
 function hasOnlyOddNumbers(arr) {
-    arr.every(odd) {
-        return odd % 2 !== 0;
-    }
+    return arr.every(num => num % 2 !== 0);
 }
 
 /*
@@ -50,14 +45,9 @@ Examples:
 */
 
 function hasNoDuplicates(arr) {
-    let saved = [];
-    for(let i = 0; i < arr.length; i++) {
-        if(arr[i] === saved) {
-            return true;
-        } else {
-            saved.push(arr[i]);
-        }
-    }
+    return arr.every(function(val) {
+        return arr.indexOf(val) === arr.lastIndexOf(val);
+      });
 }
 
 /*
@@ -76,9 +66,9 @@ Examples:
 */
 
 function hasCertainKey(arr, key) {
-    arr.some(function(value) {
-        return value.key;
-    })
+    return arr.every(function(obj) {
+        return key in obj;
+      });
 }
 
 /*
@@ -98,11 +88,7 @@ Examples:
 */
 
 function hasCertainValue(arr, key, searchValue) {
-    arr.every(function(key) {
-        if(arr.key !== searchValue) {
-            return true
-        } else {
-            return false;
-        }
-    })
+    return arr.every(function(obj) {
+        return obj[key] === searchValue;
+      });
 }

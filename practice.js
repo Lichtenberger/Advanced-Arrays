@@ -56,8 +56,8 @@ Examples:
     // [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}]
 
 */
-function addKeyAndValue(arr,key,value){
-     
+function addKeyAndValue(arr,key,value) {
+        return arr.map(obj => ({ ...obj, [key]: value }));
 }
 
 /*
@@ -71,7 +71,26 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 function vowelCount(str){
-   
+        const vowels = 'aeiou';
+        const result = {};
+        for (let char of str.toLowerCase()) {
+          if (vowels.includes(char)) {
+            result[char] = ++result[char] || 1;
+          }
+        }
+        return result;
+      
+      
+  /* close but didnt work
+   let count = [];
+   let j = 0;
+   const vowels = ['a', 'e', 'i', 'o', 'u'];
+   str.map(function(char) {
+    if(char.toLowerCase() === vowels) {
+        count += `char: [j++]`
+    }
+   })
+   return count;*/
    }
 
 /*
@@ -114,7 +133,7 @@ Examples:
 */
 
 function extractKey(arr, key){
-    
+        return arr.map(obj => obj[key]);    
 }
 
 /*
@@ -125,7 +144,7 @@ Examples:
 */
 
 function extractFullName(arr){
-    
+    return arr.map(obj => `${obj.first} ${obj.last}`);
 }
 
 /*
@@ -135,7 +154,9 @@ Examples:
     filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner') // [{first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Colt', last:"Steele", isCatOwner: true}]
 */
 
-function filterByValue(arr, key) {}
+function filterByValue(arr, key) {
+    return arr.filter(obj => obj.hasOwnProperty(key));
+}
 
 /*
 Write a function called find which accepts an array and a value and returns the first element in the array that has the same value as the second parameter or undefined if the value is not found in the array.
@@ -146,7 +167,7 @@ Examples:
 */
 
 function find(arr, searchValue) {
-    
+    return arr.filter(el => el === searchValue);
 }
 
 /*
@@ -156,7 +177,11 @@ Examples:
     findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true) // {first: 'Tim', last:"Garcia", isCatOwner: true}
 */
 
-function findInObj(arr, key, searchValue) {}
+function findInObj(arr, key, searchValue) {
+    return arr.filter(function(val) {
+        return val[key] === searchValue;
+    })[0];
+}
 
 /*
 Write a function called removeVowels which accepts a string and returns a new string with all of the vowels (both uppercased and lowercased) removed. Every character in the new string should be lowercased.
@@ -169,7 +194,7 @@ Examples:
 
 
 function removeVowels(str) {
-    
+    return str.toLowerCase().replace(/[aeiou]/g, '');
 }
 
 /*
