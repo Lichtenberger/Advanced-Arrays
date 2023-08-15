@@ -37,4 +37,4 @@ describe("#findUserByUsername", function() {
       expect(users.length).toEqual(3);
   
     });
-  });
+  }); 

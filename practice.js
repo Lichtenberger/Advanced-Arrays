@@ -167,7 +167,9 @@ Examples:
 */
 
 function find(arr, searchValue) {
-    return arr.filter(el => el === searchValue);
+    return arr.filter(function(val) {
+        return val === searchValue;
+    })[0];
 }
 
 /*
