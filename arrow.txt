@@ -1,0 +1,8 @@
+Problem #1 map callback
+
+let double = arr => arr.map(n => n * 2);
+
+Problem #2
+
+let squareAndFindEvens = numbers => numbers.map(val => val ** 2).filter(square => square % 2 === 0)
+
