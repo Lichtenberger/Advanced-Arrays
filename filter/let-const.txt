@@ -1,0 +1,22 @@
+Problem #1
+var PI = 3.14;
+PI = 42; // stop me from doing this!
+
+so for the you would simply change the var to const, let could be used but PI is always 3.14 and
+do not want that mutated.
+
+const PI = 3.14
+
+Problem #2
+/* Write an ES2015 Version */
+const sky = blue;
+let today = cloudy;
+
+1. What is the difference between var and let?
+let is block scope and cannot be redeclared, while var is not block scope and does not care if redeclared
+2. What is the difference between var and const
+const is block scope and cannot be redeclared
+3. What is the difference between let and const?
+const cannot be redeclared
+4. What is hoisting?
+hoisting is using declared variables outside the block
